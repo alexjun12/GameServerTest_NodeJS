@@ -6,12 +6,12 @@ const sws = new WebSocket.Server({ port: 3333 },()=>{ //open port, start new ser
 }); 
 
 const horseInfo = {
-   level,
-   speed,
-   accel,
-   hp,
-   agility,
-   consis
+   level: 0,
+   speed: 0,
+   accel: 0,
+   hp: 0,
+   agility: 0,
+   consis: 0
 }
 
 let clientNum = 0; //number of connected clients 
@@ -39,6 +39,8 @@ sws.on('connection', function connection(client) { //if server is connected run 
          horseInfo.consis = String(data).substring(5,6);
 
          console.log(horseInfo);
+
+         
       }
    }) 
 }) 
