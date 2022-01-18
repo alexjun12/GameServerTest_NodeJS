@@ -1,9 +1,18 @@
 const rsv = require('./Room.js');
 
 const WebSocket = require('ws'); //get WebSocket from socket
-const sws= new WebSocket.Server({ port: 3333 },()=>{ //open port, start new server  
+const sws = new WebSocket.Server({ port: 3333 },()=>{ //open port, start new server  
     console.log('StartServer') 
 }); 
+
+const horseInfo = {
+   level,
+   speed,
+   accel,
+   hp,
+   agility,
+   consis
+}
 
 let clientNum = 0; //number of connected clients 
 const clientId = []; //client Id saved
@@ -21,6 +30,15 @@ sws.on('connection', function connection(client) { //if server is connected run 
          client.send("GameStart"); //request to start game
          clientNum = 0;
          resGStart = false;
+
+         horseInfo.level = String(data).substring(0,1);
+         horseInfo.speed = String(data).substring(1,2);
+         horseInfo.accel = String(data).substring(2,3);
+         horseInfo.hp = String(data).substring(3,4);
+         horseInfo.agility = String(data).substring(4,5);
+         horseInfo.consis = String(data).substring(5,6);
+
+         console.log(horseInfo);
       }
    }) 
 }) 
