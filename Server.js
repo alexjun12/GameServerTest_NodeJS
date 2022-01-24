@@ -1,3 +1,4 @@
+//not using
 const WebSocket = require('ws'); //get WebSocket from socket
 const sws = new WebSocket.Server({ port: 3333 },()=>{ //open port, start new server  
     console.log('StartServer!!') 
@@ -16,6 +17,7 @@ let position = { //
    y: 0,
    z: -13
 };
+
 const rPoint1 = 30;
 const rPoint2 = -15;
 const dPoint1 = 19.75;
